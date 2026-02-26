@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - API_KEY=${API_KEY:-secret-api-key}
+      - DATABASE_URL=sqlite+aiosqlite:///./luna.db
+    volumes:
+      - luna_data:/app
+    restart: unless-stopped
+
+volumes:
+  luna_data:
