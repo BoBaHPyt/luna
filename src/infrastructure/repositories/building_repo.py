@@ -47,8 +47,7 @@ class BuildingRepositoryImpl(BuildingRepository):
         radius_m: float
     ) -> list[BuildingEntity]:
         """
-        Поиск зданий в радиусе (формула гаверсинуса).
-        Оптимизация: сначала box-фильтр через SQL, затем точная проверка радиуса.
+        TODO: Оптимизация: полная фильтрация на стороне базы
         """
         buildings = await self._get_buildings_in_box_sql(latitude, longitude, radius_m)
         
